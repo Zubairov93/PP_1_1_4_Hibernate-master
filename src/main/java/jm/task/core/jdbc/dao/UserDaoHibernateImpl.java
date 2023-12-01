@@ -1,4 +1,4 @@
-package jm.task.core.jdbc.model.dao;
+package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
@@ -56,7 +56,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public void removeUserById(long id) {
         try(Session session = Util.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.createSQLQuery("delete User where id = " + id).executeUpdate();
+            session.delete(session.get(User.class, id));
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();

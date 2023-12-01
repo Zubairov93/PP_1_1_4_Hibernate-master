@@ -1,4 +1,4 @@
-package jm.task.core.jdbc.model.dao;
+package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 
